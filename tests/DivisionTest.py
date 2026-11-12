@@ -50,7 +50,12 @@ class DivisionTest(unittest.TestCase):
     # pre-condition: a=1, b=3
     # post-condition: result is displayed as 0.33
     def testOneDividedByThree(self):
-        raise ValueError()
+        self.browser.find_element(By.NAME, "a").send_keys("1")
+        self.browser.find_element(By.NAME, "b").send_keys("3")
+        self.browser.find_element(By.NAME, "submit").click()
+
+        result = self.browser.find_element(By.TAG_NAME, "p").text
+        self.assertEqual(result, "Result: 0.33")
 
     # pre-condition: a=5, b=0
     # post-condition: message "Denominator cannot be zero" is displayed
