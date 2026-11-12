@@ -20,7 +20,12 @@ class DivisionTest(unittest.TestCase):
     # pre-condition: a=5, b=2
     # post-condition: result is displayed as 2.5
     def testFiveDividedByTwo(self):
-        raise ValueError()
+        self.browser.find_element(By.NAME, "a").send_keys("5")
+        self.browser.find_element(By.NAME, "b").send_keys("2")
+        self.browser.find_element(By.NAME, "submit").click()
+
+        result = self.browser.find_element(By.TAG_NAME, "p").text
+        self.assertEqual(result, "Result: 2.5")
 
     # pre-condition: a=-5, b=2
     # post-condition: result is displayed as -2.5
