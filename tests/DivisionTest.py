@@ -60,7 +60,12 @@ class DivisionTest(unittest.TestCase):
     # pre-condition: a=5, b=0
     # post-condition: message "Denominator cannot be zero" is displayed
     def testFiveDividedByZero(self):
-        raise ValueError()
+        self.browser.find_element(By.NAME, "a").send_keys("5")
+        self.browser.find_element(By.NAME, "b").send_keys("0")
+        self.browser.find_element(By.NAME, "submit").click()
 
+        result = self.browser.find_element(By.TAG_NAME, "p").text
+        self.assertEqual(result, "Denominator cannot be zero")
+        
 if __name__ == '__main__':
     unittest.main()
