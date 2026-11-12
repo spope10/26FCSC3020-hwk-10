@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block main %}
+        <form action="" method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            <p>{{ form.a(size=5) }} / {{ form.b(size=5) }} {{ form.submit() }}</p>
+        </form>
+{% endblock %}
